@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect, useCallback } from 'react';
 import './App.css';
 import MovieList from './components/MovieList';
+import AddMovie from './components/AddMovie';
 
 function App() {
 
@@ -48,7 +49,11 @@ function App() {
 
   useEffect(() => {
     getMovies();
-  }, [getMovies])
+  }, [getMovies]);
+
+  const getEnteredMovie = ((movie) => {
+    console.log(movie);
+  })
 
   //Setting up content based on state
   let content = <p>No Movies Found. Please Try Fetching Movies</p>
@@ -67,6 +72,9 @@ function App() {
   
   return (
     <Fragment>
+      <section>
+        <AddMovie onAddMovie={getEnteredMovie} />
+      </section>
       <section>
         <button onClick={getMovies} >Fetch Movies</button>
       </section>
