@@ -53,15 +53,13 @@ function App() {
   }, [getMovies]);
 
   const getEnteredMovie = (async (movie) => {
-    const response = await fetch('https://movies-http-f8d53-default-rtdb.firebaseio.com/films.json',{
+    await fetch('https://movies-http-f8d53-default-rtdb.firebaseio.com/films.json',{
       method: 'POST',
       body: JSON.stringify(movie),
       headers: {
         'Content-type': 'application/json'
       }
     });
-    const data = await response.json();
-    console.log(data);
   })
 
   //Setting up content based on state
