@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect, useCallback } from 'react';
 import './App.css';
 import MovieList from './components/MovieList';
 
@@ -14,7 +14,7 @@ function App() {
   const [error, setError] = useState(null);
 
   //Function the fetches movie info from SWAPI
-  async function getMovies(){
+  const getMovies = useCallback (async() => {
 
     setIsLoading(true);
     setError(null);
@@ -44,7 +44,11 @@ function App() {
     setError(error.message);
    }
    setIsLoading(false);
-  }
+  }, [])
+
+  useEffect(() => {
+    getMovies();
+  }, [getMovies])
 
   //Setting up content based on state
   let content = <p>No Movies Found. Please Try Fetching Movies</p>
