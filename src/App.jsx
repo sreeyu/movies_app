@@ -22,7 +22,7 @@ function App() {
     
    try{
 
-    const response = await fetch("https://swapi.py4e.com/api/films/")
+    const response = await fetch("https://movies-http-f8d53-default-rtdb.firebaseio.com/films.json")
 
     if(!response.ok){
       throw new Error('Something Went Wrong!');
@@ -30,16 +30,17 @@ function App() {
     
     const data = await response.json();
 
-      //Format the object to filter out unwanted info and to change keys
-      const formattedMovie = data.results.map((movieData) => {
-        return {
-          id: movieData.episode_id,
-          title: movieData.title,
-          releaseDate: movieData.release_date,
-          openingText: movieData.opening_crawl
-        };
+    const loadedMovies = []
+
+    for (const key in data){
+      loadedMovies.push({
+        id: key,
+        title: data[key].title,
+        openingText: data[key].openingText,
+        releaseDate: data[key].releaseDate
       });
-      setMovie(formattedMovie);
+    }
+    setMovie(loadedMovies);
       
    } catch(error){
     setError(error.message);
@@ -51,8 +52,16 @@ function App() {
     getMovies();
   }, [getMovies]);
 
-  const getEnteredMovie = ((movie) => {
-    console.log(movie);
+  const getEnteredMovie = (async (movie) => {
+    const response = await fetch('https://movies-http-f8d53-default-rtdb.firebaseio.com/films.json',{
+      method: 'POST',
+      body: JSON.stringify(movie),
+      headers: {
+        'Content-type': 'application/json'
+      }
+    });
+    const data = await response.json();
+    console.log(data);
   })
 
   //Setting up content based on state
