@@ -14,7 +14,7 @@ function App() {
   //Handle Error State
   const [error, setError] = useState(null);
 
-  //Function the fetches movie info from SWAPI
+  //Function the fetches movie info
   const getMovies = useCallback (async() => {
 
     setIsLoading(true);

@@ -1,7 +1,45 @@
 # movies_app
 
+The movies_app is a web application that allows users to fetch and add movies. It retrieves movie information from Firebase and provides an interface for users to view and add movies to the list.
+
+## Features
+- Fetch Movies: Clicking on the "Fetch Movies" button retrieves movie information from Firebase and displays them in a list.
+- Add Movie: Users can add a new movie to the list by filling out the title, opening text, and release date fields and clicking the "Add Movie" button.
+- Loading State: While fetching movies, a loading indicator is displayed to provide feedback to the user.
+- Error Handling: If an error occurs during the API request or if no movies are found, an appropriate error message is displayed.
+- Movie List: The fetched movies are displayed in a list format, showing the movie title and opening text.
+
+## Technologies Used
+- React: A JavaScript library for building user interfaces.
+- JSX: A syntax extension for JavaScript that allows writing HTML-like code in React components.
+- CSS: Cascading Style Sheets for styling the application.
+- Firebase: A platform that provides various services for building web and mobile applications, including real-time database functionality.
+
+## Getting Started
+You can access the deployed version of the Movie List App by following this link: [movies_app](https://sreeyu.github.io/movies_app/). This allows you to interact with the application without any setup.
+
+## Usage
+1. Upon accessing the Movie List App, you will see a form titled "Add Movie" and a button labeled "Fetch Movies."
+
+2. To add a new movie to the list:
+
+ - Enter the movie's title in the "Title" input field.
+ - Provide a brief opening text for the movie in the "Opening Text" textarea.
+ - Specify the movie's release date in the "Release Date" input field.
+ - Click the "Add Movie" button to add the movie to the list.
+
+3. To fetch movies:
+
+ - Click the "Fetch Movies" button. The app will retrieve movie information from the database and display them in a list below the button.
+
+4. The list of movies will appear below the "Fetch Movies" button. Each movie is represented by a title and an opening text.
+
+5. If there are no movies to display or an error occurs during the API request, an appropriate message will be shown on the screen.
+
+6. You can add more movies or fetch movies again by repeating steps 2 and 3.
+
 ## HTTP Request
-An HTTp (Hypertext Transfer Protocol) request is a message sent by a client (such as a web browser or an application) to a server, requesting a specific action or resource. It is the foundation of communication between clients and servers over the internet.
+An HTTP (Hypertext Transfer Protocol) request is a message sent by a client (such as a web browser or an application) to a server, requesting a specific action or resource. It is the foundation of communication between clients and servers over the internet.
 
 An HTTP request consists of several components:
 
@@ -80,3 +118,6 @@ fetchData()
 ```
 
 Promises provide a powerful mechanism for handling asynchronous operations and enable you to write more maintainable and readable code when dealing with asynchronous tasks in JavaScript.
+
+## License
+This project is licensed under the [MIT License](https://opensource.org/license/mit/).
